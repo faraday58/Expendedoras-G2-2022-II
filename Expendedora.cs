@@ -7,6 +7,7 @@ namespace Expendedoras_G2_2022_II
     {
         #region Atributos
         string marca;
+        string modelo;
         byte temperatura;
         float precio;
         ushort cantProductos;
@@ -26,6 +27,27 @@ namespace Expendedoras_G2_2022_II
             LimpiarPantalla();
             MostrarPrecio(codigo);
             
+        }
+        //Constructor con parámetros
+        public Expendedora(string marca)
+        {
+          //this.marca: atributo
+            this.marca = marca; //marca: es un parámetro
+            Saludar();
+            LimpiarPantalla();
+            Console.WriteLine("Marca: {0} ", this.marca);
+
+        }
+
+        public Expendedora(string modelo,string marca )
+        {
+            this.modelo = modelo;
+            this.marca = marca;
+            Saludar();
+            LimpiarPantalla();
+            Console.WriteLine("Marca: {0}", marca);
+            Console.WriteLine("Modelo: {0}", modelo);
+
         }
 
         #region Métodos
