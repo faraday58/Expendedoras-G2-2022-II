@@ -7,8 +7,8 @@ namespace Expendedoras_G2_2022_II
         static void Main(string[] args)
         {
             // Objeto de la Clase
-            Expendedora miExpendedora = new Expendedora();
-            Console.WriteLine("Ingrese la marca de la expendedora\n que  desea consultar");
+           /* Expendedora miExpendedora = new Expendedora();
+            /*Console.WriteLine("Ingrese la marca de la expendedora\n que  desea consultar");
             string marca= Console.ReadLine();
             //Sobrecargando al constructor con el parámetro marca
             Expendedora expendedoraElegida = new Expendedora(marca);
@@ -19,8 +19,16 @@ namespace Expendedoras_G2_2022_II
             Console.WriteLine("Ingrese el modelo");
             string modelo = Console.ReadLine();
             //Sobrecargando el  constructor con los parámetros modelo y marca.
-            Expendedora expenMarcaMod = new Expendedora(modelo, marca);           
+            Expendedora expenMarcaMod = new Expendedora(modelo, marca);                    
 
+            Console.WriteLine("La temperatura de la expendedora no es adecuada");
+            for(int i =0; i< 10; i++ )
+            {
+                miExpendedora.ElevarTemperatura();
+            }                
+            */
+
+            Cafe miCafe = new Cafe();
 
             Console.ReadLine();
         }

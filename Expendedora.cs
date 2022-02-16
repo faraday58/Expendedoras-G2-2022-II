@@ -3,30 +3,41 @@ using System.Threading;
 
 namespace Expendedoras_G2_2022_II
 {
-    class Expendedora
+    abstract class Expendedora
     {
         #region Atributos
-        string marca;
-        string modelo;
-        byte temperatura;
-        float precio;
-        ushort cantProductos;
+       internal string marca;
+       internal  string modelo;
+       internal byte temperatura;
+       internal float precio;
+       internal ushort cantProductos;
+
         #endregion
+        #region Propiedades
+        public byte Temperatura {
+            //Leer
+            get => temperatura;
+            //Escribir
+            set
+            {
+                if (value < 15 || value > 20   )
+                {
+                    temperatura = 15;
+                }else
+                {
+                    temperatura = value;
+                }                
+            }
+        }
+        #endregion
+
+
+        #region Constructores
         //Constructor de la clase
         public Expendedora()
         {
-            marca = "ADM";
-            temperatura = 18;
             Saludar();
-            LimpiarPantalla();     
-            Console.WriteLine("Marca: {0}", marca);
             LimpiarPantalla();
-            Console.WriteLine("Temperatura: {0} °C", temperatura);
-            LimpiarPantalla();
-            string codigo= MostrarCodigoProducto();
-            LimpiarPantalla();
-            MostrarPrecio(codigo);
-            
         }
         //Constructor con parámetros
         public Expendedora(string marca)
@@ -49,20 +60,28 @@ namespace Expendedoras_G2_2022_II
             Console.WriteLine("Modelo: {0}", modelo);
 
         }
+        #endregion
 
         #region Métodos
-        void Saludar()
+        internal void Saludar()
         {
             Console.WriteLine("***Bienvenido a tu expendedora***");
         }
-
-        void LimpiarPantalla()
+        //public es un modificador de acceso
+        public void ElevarTemperatura()
+        {
+            Temperatura++;
+            LimpiarPantalla();
+            Console.WriteLine("Temperatura: {0} ", Temperatura);
+            
+        }
+        internal void LimpiarPantalla()
         {
             Thread.Sleep(2000); //el parámetro está en milisegundos
             Console.Clear();
         }
         
-        string MostrarCodigoProducto()
+        internal string MostrarCodigoProducto()
         {
             Console.WriteLine(" 1A) Crujitos \n 2B) Totis ");
             Console.WriteLine( "Ingresa el código del producto a elegir: "  );
@@ -70,7 +89,7 @@ namespace Expendedoras_G2_2022_II
             return codigo;
         }
         
-        void MostrarPrecio(string codigo)
+        internal void MostrarPrecio(string codigo)
         {
             switch(codigo)
             {
