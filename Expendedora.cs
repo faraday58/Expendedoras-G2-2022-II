@@ -14,7 +14,7 @@ namespace Expendedoras_G2_2022_II
 
         #endregion
         #region Propiedades
-        public byte Temperatura {
+        public virtual byte Temperatura {
             //Leer
             get => temperatura;
             //Escribir
@@ -75,21 +75,22 @@ namespace Expendedoras_G2_2022_II
             Console.WriteLine("Temperatura: {0} ", Temperatura);
             
         }
+        //Método tipo subrutina
         internal void LimpiarPantalla()
         {
             Thread.Sleep(2000); //el parámetro está en milisegundos
             Console.Clear();
         }
-        
-        internal string MostrarCodigoProducto()
+        //Método tipo Función
+        internal virtual string MostrarCodigoProducto()
         {
             Console.WriteLine(" 1A) Crujitos \n 2B) Totis ");
             Console.WriteLine( "Ingresa el código del producto a elegir: "  );
             string codigo = Console.ReadLine(); //Variable local 
             return codigo;
         }
-        
-        internal void MostrarPrecio(string codigo)
+        //Método tipo procedimiento
+        internal virtual void MostrarPrecio(string codigo)
         {
             switch(codigo)
             {
